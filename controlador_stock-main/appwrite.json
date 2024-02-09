@@ -1,0 +1,104 @@
+{
+    "projectId": "64526a7f32a8d0e4aaf4",
+    "projectName": "",
+    "functions": [
+        {
+            "$id": "createNewProduct",
+            "name": "createNewProduct",
+            "runtime": "dart-2.17",
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15,
+            "enabled": true,
+            "logging": true,
+            "entrypoint": "lib/main.dart",
+            "commands": "dart pub get",
+            "ignore": [
+                ".packages",
+                ".dart_tool"
+            ],
+            "path": "functions/createNewProduct"
+        },
+        {
+            "$id": "createNewProductWithdrawal",
+            "name": "createNewProductWithdrawal",
+            "runtime": "dart-2.17",
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15,
+            "enabled": true,
+            "logging": true,
+            "entrypoint": "lib/main.dart",
+            "commands": "dart pub get",
+            "ignore": [
+                ".packages",
+                ".dart_tool"
+            ],
+            "path": "functions/createNewProductWithdrawal"
+        },
+        {
+            "$id": "deleteProducts",
+            "name": "deleteProducts",
+            "runtime": "dart-2.17",
+            "execute": [],
+            "events": [],
+            "schedule": "",
+            "timeout": 15,
+            "enabled": true,
+            "logging": true,
+            "entrypoint": "lib/main.dart",
+            "commands": "dart pub get",
+            "ignore": [
+                ".packages",
+                ".dart_tool"
+            ],
+            "path": "functions/deleteProducts"
+        },
+        {
+            "$id": "createNewDepartment",
+            "name": "createNewDepartment",
+            "runtime": "dart-2.17",
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15,
+            "enabled": true,
+            "logging": true,
+            "entrypoint": "lib/main.dart",
+            "commands": "dart pub get",
+            "ignore": [
+                ".packages",
+                ".dart_tool"
+            ],
+            "path": "functions/createNewDepartment"
+        },
+        {
+            "$id": "createReport",
+            "name": "createReport",
+            "runtime": "dart-3.1",
+            "execute": [
+                "any"
+            ],
+            "events": [],
+            "schedule": "",
+            "timeout": 15,
+            "enabled": true,
+            "logging": true,
+            "entrypoint": "lib/main.dart",
+            "commands": "dart pub get",
+            "ignore": [
+                ".packages",
+                ".dart_tool"
+            ],
+            "path": "functions/createReport"
+        }
+    ]
+}
