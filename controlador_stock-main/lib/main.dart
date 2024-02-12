@@ -32,7 +32,9 @@ class MyApp extends StatelessWidget {
         Provider(
             create: (_) => Dependencies.departmentReportPresentatorManager),
       ],
-      child: FluentApp(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ligthThemeData,
         initialRoute: TabBarSystemView.routeName,
         routes: {
           ProductViewerScreen.routeName: (context) =>

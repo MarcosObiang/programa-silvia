@@ -252,6 +252,7 @@ class _ProductReportScreenState extends State<ProductReportScreen> {
                   toDate = await showDatePicker(
                       context: context,
                       firstDate: fromDate as DateTime,
+                      initialDate: DateTime.now(),
                       lastDate: DateTime.now());
 
                   toDate ??= DateTime.now();

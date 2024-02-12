@@ -35,94 +35,104 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
                 DepartmentPresentationManager departmentPresentationManager,
                 Widget? child) {
           return Padding(
-            padding: EdgeInsets.all(50).w,
-            child: Center(
-              child: Container(
-                child: Center(
-                  child: Column(
-                    children: [
-                      Flexible(
-                        flex: 2,
-                        fit: FlexFit.tight,
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            "Departamentos",
-                            style: Theme.of(context).textTheme.headlineLarge,
+            padding: EdgeInsets.all(20).w,
+            child: SizedBox.expand(
+              child: Center(
+                child: Column(
+                  children: [
+                    Flexible(
+                      flex: 2,
+                      fit: FlexFit.tight,
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          "Departamentos",
+                          style: Theme.of(context).textTheme.headlineLarge,
+                        ),
+                      ),
+                    ),
+                    Flexible(
+                      flex: 12,
+                      fit: FlexFit.tight,
+                      child: Card(
+                        elevation: 5,
+                        shadowColor: Theme.of(context).colorScheme.primary,
+                        borderOnForeground: true,
+                        child: Padding(
+                          padding: EdgeInsets.all(10.0).w,
+                          child: DataTable2(
+                            showCheckboxColumn: true,
+                            columns: [
+                              DataColumn2(
+                                label: Text(
+                                  "Departamento",
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
+                                ),
+                              ),
+                              DataColumn2(
+                                label: Text(
+                                  "Identificador",
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
+                                ),
+                              ),
+                              DataColumn2(
+                                label: Text(
+                                  "Entradas",
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
+                                ),
+                              ),
+                              DataColumn2(
+                                label: Text(
+                                  "Salidas",
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
+                                ),
+                              ),
+                              DataColumn2(
+                                label: Text(
+                                  "",
+                                ),
+                              ),
+                              DataColumn2(
+                                label: Text(
+                                  "",
+                                ),
+                              ),
+                            ],
+                            rows: List.generate(
+                                departmentPresentationManager
+                                    .departmentController.departmentList.length,
+                                (index) => customDataCell(
+                                    departmentPresentationManager:
+                                        departmentPresentationManager,
+                                    departmentEntity:
+                                        departmentPresentationManager
+                                            .departmentController
+                                            .departmentList[index])),
                           ),
                         ),
                       ),
-                      Flexible(
-                        flex: 12,
-                        fit: FlexFit.tight,
-                        child: DataTable2(
-                          showCheckboxColumn: true,
-                          columns: [
-                            DataColumn2(
-                              label: Text(
-                                "Departamento",
-                                style: Theme.of(context).textTheme.titleMedium,
-                              ),
-                            ),
-                            DataColumn2(
-                              label: Text(
-                                "Identificador",
-                                style: Theme.of(context).textTheme.titleMedium,
-                              ),
-                            ),
-                            DataColumn2(
-                              label: Text(
-                                "Entradas",
-                                style: Theme.of(context).textTheme.titleMedium,
-                              ),
-                            ),
-                            DataColumn2(
-                              label: Text(
-                                "Salidas",
-                                style: Theme.of(context).textTheme.titleMedium,
-                              ),
-                            ),
-                            DataColumn2(
-                              label: Text(
-                                "",
-                              ),
-                            ),
-                            DataColumn2(
-                              label: Text(
-                                "",
-                              ),
-                            ),
-                          ],
-                          rows: List.generate(
-                              departmentPresentationManager
-                                  .departmentController.departmentList.length,
-                              (index) => customDataCell(
+                    ),
+                    Flexible(
+                      flex: 2,
+                      fit: FlexFit.loose,
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: ElevatedButton.icon(
+                            onPressed: () {
+                              showDepartmentCreationDialog(
                                   departmentPresentationManager:
                                       departmentPresentationManager,
-                                  departmentEntity:
-                                      departmentPresentationManager
-                                          .departmentController
-                                          .departmentList[index])),
-                        ),
+                                  buildContext: context);
+                            },
+                            icon: Icon(Icons.create),
+                            label: Text("Crear departamento")),
                       ),
-                      Flexible(
-                        flex: 2,
-                        fit: FlexFit.loose,
-                        child: Align(
-                          alignment: Alignment.topRight,
-                          child: ElevatedButton.icon(
-                              onPressed: () {
-                                showDepartmentCreationDialog(
-                                    departmentPresentationManager:
-                                        departmentPresentationManager,
-                                    buildContext: context);
-                              },
-                              icon: Icon(Icons.create),
-                              label: Text("Crear departamento")),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),

@@ -58,105 +58,95 @@ class _TabBarSystemViewState extends State<TabBarSystemView> {
       context,
       designSize: const Size(1920, 1080),
     );
-    return fluent_ui.NavigationView(
-      appBar: fluent_ui.NavigationAppBar(
-        automaticallyImplyLeading: false,
-        title: Text(
-          "Inventario",
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
-      ),
-      pane: fluent_ui.NavigationPane(
-          selected: _currentIndex,
-          displayMode: fluent_ui.PaneDisplayMode.open,
-          onChanged: (value) => setState(() => _currentIndex = value),
-          items: items,
-          footerItems: [
-            fluent_ui.PaneItemHeader(
-                header: Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                  height: 150.h,
-                  width: 300.h,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: NetworkImage(
-                              "https://equatorialoil.com/wp-content/uploads/2022/04/Sonagas.jpg")))),
-            ))
-          ]),
-    );
 
-    /*   MaterialApp(
+    return MaterialApp(
       title: 'Onventario',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Row(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Theme.of(context).colorScheme.background,
-              ),
-              child: Column(
-                children: [
-                  Container(
-                    height: 300.h,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                "https://equatorialoil.com/wp-content/uploads/2022/04/Sonagas.jpg"))),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(20).w,
-                    child: SideMenu(
-                      hasResizer: false,
-                      hasResizerToggle: false,
-                      controller: _controller,
-                      backgroundColor: Theme.of(context).colorScheme.background,
-                      mode: SideMenuMode.open,
-                      builder: (data) {
-                        return SideMenuData(
-                          items: [
-                            SideMenuItemDataTile(
-                              isSelected: _currentIndex == 0,
-                              onTap: () => setState(() => _currentIndex = 0),
-                              title: 'Productos',
-                              highlightSelectedColor:
-                                  Theme.of(context).colorScheme.secondary,
-                              borderRadius: BorderRadius.circular(5),
-                              titleStyle: TextStyle(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .onSecondaryContainer),
-                              selectedTitleStyle: const TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white),
-                              icon: const Icon(Icons.home_outlined),
-                              selectedIcon: const Icon(Icons.home),
+            fluent_ui.Padding(
+              padding: EdgeInsets.all(8).w,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Theme.of(context).colorScheme.secondaryContainer,
+                ),
+                child: fluent_ui.Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SideMenu(
+                    hasResizer: false,
+                    hasResizerToggle: false,
+                    backgroundColor:
+                        Theme.of(context).colorScheme.secondaryContainer,
+                    mode: SideMenuMode.open,
+                    builder: (data) {
+                      return SideMenuData(
+                        header: fluent_ui.Padding(
+                          padding: EdgeInsets.all(10).w,
+                          child: Container(
+                              height: 200.h,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(3),
+                                  border: Border.all(color: Colors.white),
+                                  image: DecorationImage(
+                                      fit: BoxFit.contain,
+                                      image: NetworkImage(
+                                          "https://equatorialoil.com/wp-content/uploads/2022/04/Sonagas.jpg")))),
+                        ),
+                        items: [
+                          SideMenuItemDataTile(
+                            isSelected: _currentIndex == 0,
+                            onTap: () => setState(() => _currentIndex = 0),
+                            title: 'Productos',
+                            borderRadius: BorderRadius.circular(5),
+                            highlightSelectedColor:
+                                Theme.of(context).colorScheme.background,
+                            titleStyle: TextStyle(
+                                color:
+                                    Theme.of(context).colorScheme.onBackground),
+                            selectedTitleStyle: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                color:
+                                    Theme.of(context).colorScheme.onBackground),
+                            icon: Icon(
+                              Icons.circle_outlined,
+                              size: 15.sp,
                             ),
-                            SideMenuItemDataTile(
-                              isSelected: _currentIndex == 1,
-                              onTap: () => setState(() => _currentIndex = 1),
-                              title: 'Departamentos',
-                              borderRadius: BorderRadius.circular(5),
-                              highlightSelectedColor:
-                                  Theme.of(context).colorScheme.secondary,
-                              selectedTitleStyle: const TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white),
-                              icon: const Icon(Icons.table_bar_outlined),
-                              selectedIcon: const Icon(Icons.table_bar),
-                              titleStyle: TextStyle(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .onSecondaryContainer),
+                            selectedIcon: Icon(
+                              Icons.circle,
+                              size: 20.sp,
                             ),
-                          ],
-                        );
-                      },
-                    ),
+                          ),
+                          SideMenuItemDataTile(
+                            isSelected: _currentIndex == 1,
+                            onTap: () => setState(() => _currentIndex = 1),
+                            title: 'Departamentos',
+                            borderRadius: BorderRadius.circular(5),
+                            highlightSelectedColor:
+                                Theme.of(context).colorScheme.background,
+                            titleStyle: TextStyle(
+                                color:
+                                    Theme.of(context).colorScheme.onBackground),
+                            selectedTitleStyle: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                color:
+                                    Theme.of(context).colorScheme.onBackground),
+                            icon: Icon(
+                              Icons.circle_outlined,
+                              size: 15.sp,
+                            ),
+                            selectedIcon: Icon(
+                              Icons.circle,
+                              size: 20.sp,
+                            ),
+                          ),
+                        ],
+                      );
+                    },
                   ),
-                ],
+                ),
               ),
             ),
             Expanded(
@@ -170,7 +160,7 @@ class _TabBarSystemViewState extends State<TabBarSystemView> {
           ],
         ),
       ),
-    );*/
+    );
   }
 }
 
@@ -203,8 +193,7 @@ class _ProductViewerScreenState extends State<ProductViewerScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Theme.of(context).colorScheme.surface,
+      body: SizedBox.expand(
         child: ChangeNotifierProvider.value(
           value: Dependencies.productViewerPresentationManager,
           child: Consumer<ProductViewerPresentationManager>(
@@ -214,7 +203,7 @@ class _ProductViewerScreenState extends State<ProductViewerScreen>
                 Widget? widget) {
               return SizedBox.expand(
                 child: Padding(
-                  padding: const EdgeInsets.all(20).w,
+                  padding: EdgeInsets.all(20).w,
                   child: Column(
                     children: [
                       Flexible(
@@ -226,46 +215,21 @@ class _ProductViewerScreenState extends State<ProductViewerScreen>
                               Flexible(
                                 flex: 1,
                                 fit: FlexFit.loose,
+                                child: fluent_ui.Text(
+                                  "Productos",
+                                  style:
+                                      Theme.of(context).textTheme.headlineLarge,
+                                ),
+                              ),
+                              Flexible(
+                                flex: 1,
+                                fit: FlexFit.loose,
                                 child: SizedBox(
                                   height: 50.h,
                                   width: 500.w,
-                                  child: fluent_ui.AutoSuggestBox<
-                                          Map<String, dynamic>>(
-                                      placeholder:
-                                          "Buscar producto por nombre o por identificador",
-                                      onChanged: (text, reason) {
-                                        productViewerPresentationManager
-                                            .productViewerController
-                                            .searchSuggestions(input: text);
-                                      },
-                                      items: productViewerPresentationManager
-                                          .productViewerController
-                                          .suggestionsList
-                                          .map((e) {
-                                        return fluent_ui.AutoSuggestBoxItem<
-                                            Map<String, dynamic>>(
-                                          label: e["productName"],
-                                          value: e,
-                                          onFocusChange: (value) {
-                                            if (value) {
-                                              productViewerPresentationManager
-                                                  .productViewerController
-                                                  .putSuggestionFirst(
-                                                      productId:
-                                                          e["productId"]);
-                                            }
-                                          },
-                                          onSelected: () {
-                                            productViewerPresentationManager
-                                                .productViewerController
-                                                .putSuggestionFirst(
-                                                    productId: e["productId"]);
-                                          },
-                                        );
-                                      }).toList())
-
-                                  /* SearchField(
-                                      hint: "Buscar producto",
+                                  child: SearchField(
+                                      hint:
+                                          "Buscar producto por nombre o identificador",
                                       onSuggestionTap: (suggestionClicked) {
                                         productViewerPresentationManager
                                             .productViewerController
@@ -300,24 +264,20 @@ class _ProductViewerScreenState extends State<ProductViewerScreen>
                                                       ],
                                                     ),
                                                   )))
-                                              .toList())*/
-                                  ,
+                                              .toList()),
                                 ),
-                              )
+                              ),
                             ],
                           )),
                       Flexible(
-                          flex: 7,
-                          fit: FlexFit.loose,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .secondaryContainer,
-                            ),
+                          flex: 12,
+                          fit: FlexFit.tight,
+                          child: Card(
+                            elevation: 5,
+                            shadowColor: Theme.of(context).colorScheme.primary,
+                            borderOnForeground: true,
                             child: Padding(
-                              padding: const EdgeInsets.all(30).w,
+                              padding: const EdgeInsets.all(10).w,
                               child: tablaProductos(
                                   productViewerPresentationManager, context),
                             ),
@@ -368,6 +328,7 @@ class _ProductViewerScreenState extends State<ProductViewerScreen>
       ProductViewerPresentationManager productViewerPresentationManager,
       BuildContext context) {
     return DataTable2(
+        decoration: BoxDecoration(),
         showCheckboxColumn: true,
         onSelectAll: (value) {
           if (value != null) {
@@ -396,34 +357,40 @@ class _ProductViewerScreenState extends State<ProductViewerScreen>
             ),
           ),
           DataColumn2(
+            size: ColumnSize.S,
             label: Text(
               "Total\nentradas",
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
           DataColumn2(
+            size: ColumnSize.S,
             label: Text(
               "Total\nsalidas",
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
           DataColumn2(
+            size: ColumnSize.S,
             label: Text(
               "En stock",
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
           DataColumn2(
+            size: ColumnSize.S,
             label: Text(
               "",
             ),
           ),
           DataColumn2(
+            size: ColumnSize.S,
             label: Text(
               "",
             ),
           ),
           DataColumn2(
+            size: ColumnSize.S,
             label: Text(
               "",
             ),
@@ -506,7 +473,7 @@ class _ProductViewerScreenState extends State<ProductViewerScreen>
                 productViewerPresentationManager.showStockUpdateOptions(
                     productId: [productentity.productId]);
               },
-              child: Text("Actualizar"))),
+              child: Icon(fluent_ui.FluentIcons.edit_note))),
           DataCell(TextButton(
               onPressed: () {
                 showSingleProductReport(
@@ -514,7 +481,7 @@ class _ProductViewerScreenState extends State<ProductViewerScreen>
                     prodcutId: productentity.productId,
                     productName: productentity.productName);
               },
-              child: Text("Informe"))),
+              child: Icon(Icons.info))),
         ]);
   }
 }
